@@ -74,7 +74,10 @@ function viewEmployees() {
     roles.title AS Titles, 
     roles.salary AS Salary,
     departments.name AS Department, 
-    employees.manager_id AS Manager`,(err, data)=>{
+    employees.manager_id AS Manager
+    FROM employees
+    JOIN roles ON employees.role_id = roles.id
+    JOIN departments ON roles.department_id = departments.id ;`,(err, data)=>{
         if(err){
             throw err
         } else {
@@ -85,5 +88,33 @@ function viewEmployees() {
 }
 
 function addRole() {
+    db.query("SELECT * FROM departments", (err, data) => {
+        if (err)
+        throw err;
 
+        inquirer.prompt(
+            {
+                type: "input",
+                name: "title",
+                message: "What is the title of the role?",
+            },
+            {
+                type: "input",
+                name: "salary",
+                message: "What is the salary of the role?"
+            },
+            {
+                type: "list",
+                name: "department",
+                message: "Which department is the role in?",
+                choices: function () {
+                    const roleDepartment = data.map(({ id, name}) => ({
+                        name: name,
+                        value: id
+                    }))
+                    return roleDepartment;
+                }
+            }
+    })
 }
+main();
