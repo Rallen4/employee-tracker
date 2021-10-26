@@ -1,26 +1,12 @@
 {
-  "name": "employee-tracker",
+  "name": "db",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Rallen4/employee-tracker.git"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Rallen4/employee-tracker/issues"
-  },
-  "homepage": "https://github.com/Rallen4/employee-tracker#readme",
-  "dependencies": {
-    "console.table": "^0.10.0",
-    "inquirer": "^8.2.0",
-    "mysql2": "^2.3.2"
-  }
+  "license": "ISC"
 }
